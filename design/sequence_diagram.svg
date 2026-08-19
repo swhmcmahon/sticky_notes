@@ -1,0 +1,198 @@
+<svg viewBox="0 0 938 2880" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 19px; font-weight: bold; fill: #1B3A5C; }
+      .subtitle { font-size: 12px; font-style: italic; fill: #555; }
+      .participant { font-size: 12px; font-weight: bold; fill: #FFFFFF; }
+      .lifeline { stroke: #1B3A5C; stroke-width: 1; stroke-dasharray: 3,3; }
+      .msg { font-size: 10.5px; fill: #1B3A5C; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#1B3A5C"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="938" height="2880" fill="#FFFFFF"/>
+  <text x="469" y="24" text-anchor="middle" font-size="22" font-weight="bold" fill="#1B3A5C">Sequence Diagrams &#8212; Sticky Notes Application (CRUD)</text>
+<text x="469" y="68" text-anchor="middle" class="title">1. Create Sticky Note (Post)</text>
+<text x="469" y="88" text-anchor="middle" class="subtitle">User submits the “Add post” form; a new Post row is inserted and the browser is redirected to the list</text>
+<rect x="20" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="84" y="135" text-anchor="middle" class="participant">User</text>
+<line x1="84" y1="150" x2="84" y2="570" class="lifeline"/>
+<rect x="174" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="238" y="135" text-anchor="middle" class="participant">Browser</text>
+<line x1="238" y1="150" x2="238" y2="570" class="lifeline"/>
+<rect x="328" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="392" y="135" text-anchor="middle" class="participant">urls.py</text>
+<line x1="392" y1="150" x2="392" y2="570" class="lifeline"/>
+<rect x="482" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="546" y="135" text-anchor="middle" class="participant">post_create()</text>
+<line x1="546" y1="150" x2="546" y2="570" class="lifeline"/>
+<rect x="636" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="700" y="135" text-anchor="middle" class="participant">PostForm</text>
+<line x1="700" y1="150" x2="700" y2="570" class="lifeline"/>
+<rect x="790" y="110" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="854" y="135" text-anchor="middle" class="participant">Post (DB)</text>
+<line x1="854" y1="150" x2="854" y2="570" class="lifeline"/>
+<line x1="84" y1="180" x2="238" y2="180" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="174" text-anchor="middle" class="msg">Fill in title, content; click Save</text>
+<line x1="238" y1="220" x2="392" y2="220" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="214" text-anchor="middle" class="msg">POST /post/new/</text>
+<line x1="392" y1="260" x2="546" y2="260" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="254" text-anchor="middle" class="msg">route to post_create(request)</text>
+<line x1="546" y1="300" x2="700" y2="300" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="294" text-anchor="middle" class="msg">PostForm(request.POST)</text>
+<path d="M700,340 h28 v18 h-28" fill="none" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="706" y="336" class="msg">is_valid()</text>
+<line x1="700" y1="380" x2="546" y2="380" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="623" y="374" text-anchor="middle" class="msg">validated data = True</text>
+<line x1="546" y1="420" x2="854" y2="420" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="700" y="414" text-anchor="middle" class="msg">form.save(commit=False) → post.save()</text>
+<path d="M854,460 h28 v18 h-28" fill="none" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="860" y="456" class="msg">INSERT INTO posts_post</text>
+<line x1="854" y1="500" x2="546" y2="500" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="700" y="494" text-anchor="middle" class="msg">new post id</text>
+<line x1="546" y1="540" x2="238" y2="540" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="534" text-anchor="middle" class="msg">302 redirect → post_list</text>
+<line x1="20" y1="605" x2="918" y2="605" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="2,4"/>
+<text x="392" y="658" text-anchor="middle" class="title">2. Read Sticky Notes (List then Detail)</text>
+<text x="392" y="678" text-anchor="middle" class="subtitle">User views the list of posts, then opens a single post to read its full title and content</text>
+<rect x="20" y="700" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="84" y="725" text-anchor="middle" class="participant">User</text>
+<line x1="84" y1="740" x2="84" y2="1320" class="lifeline"/>
+<rect x="174" y="700" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="238" y="725" text-anchor="middle" class="participant">Browser</text>
+<line x1="238" y1="740" x2="238" y2="1320" class="lifeline"/>
+<rect x="328" y="700" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="392" y="725" text-anchor="middle" class="participant">urls.py</text>
+<line x1="392" y1="740" x2="392" y2="1320" class="lifeline"/>
+<rect x="482" y="700" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="546" y="725" text-anchor="middle" class="participant">post_list() /
+post_detail()</text>
+<line x1="546" y1="740" x2="546" y2="1320" class="lifeline"/>
+<rect x="636" y="700" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="700" y="725" text-anchor="middle" class="participant">Post (DB)</text>
+<line x1="700" y1="740" x2="700" y2="1320" class="lifeline"/>
+<line x1="84" y1="770" x2="238" y2="770" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="764" text-anchor="middle" class="msg">Open http://localhost:8000/</text>
+<line x1="238" y1="810" x2="392" y2="810" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="804" text-anchor="middle" class="msg">GET /</text>
+<line x1="392" y1="850" x2="546" y2="850" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="844" text-anchor="middle" class="msg">route to post_list(request)</text>
+<line x1="546" y1="890" x2="700" y2="890" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="884" text-anchor="middle" class="msg">Post.objects.all()</text>
+<line x1="700" y1="930" x2="546" y2="930" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="623" y="924" text-anchor="middle" class="msg">queryset of posts</text>
+<line x1="546" y1="970" x2="238" y2="970" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="964" text-anchor="middle" class="msg">render post_list.html</text>
+<line x1="238" y1="1010" x2="84" y2="1010" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="161" y="1004" text-anchor="middle" class="msg">Display list of post titles</text>
+<line x1="84" y1="1050" x2="238" y2="1050" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="1044" text-anchor="middle" class="msg">Click a post title</text>
+<line x1="238" y1="1090" x2="392" y2="1090" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="1084" text-anchor="middle" class="msg">GET /post/&lt;pk&gt;/</text>
+<line x1="392" y1="1130" x2="546" y2="1130" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="1124" text-anchor="middle" class="msg">route to post_detail(request, pk)</text>
+<line x1="546" y1="1170" x2="700" y2="1170" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="1164" text-anchor="middle" class="msg">get_object_or_404(Post, pk=pk)</text>
+<line x1="700" y1="1210" x2="546" y2="1210" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="623" y="1204" text-anchor="middle" class="msg">matching Post instance</text>
+<line x1="546" y1="1250" x2="238" y2="1250" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="1244" text-anchor="middle" class="msg">render post_detail.html</text>
+<line x1="238" y1="1290" x2="84" y2="1290" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="161" y="1284" text-anchor="middle" class="msg">Display post title &amp; content</text>
+<line x1="20" y1="1355" x2="918" y2="1355" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="2,4"/>
+<text x="469" y="1408" text-anchor="middle" class="title">3. Update Sticky Note (Post)</text>
+<text x="469" y="1428" text-anchor="middle" class="subtitle">User edits an existing post; the pre-filled form is redisplayed on GET, then the change is saved on POST</text>
+<rect x="20" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="84" y="1475" text-anchor="middle" class="participant">User</text>
+<line x1="84" y1="1490" x2="84" y2="2110" class="lifeline"/>
+<rect x="174" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="238" y="1475" text-anchor="middle" class="participant">Browser</text>
+<line x1="238" y1="1490" x2="238" y2="2110" class="lifeline"/>
+<rect x="328" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="392" y="1475" text-anchor="middle" class="participant">urls.py</text>
+<line x1="392" y1="1490" x2="392" y2="2110" class="lifeline"/>
+<rect x="482" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="546" y="1475" text-anchor="middle" class="participant">post_update()</text>
+<line x1="546" y1="1490" x2="546" y2="2110" class="lifeline"/>
+<rect x="636" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="700" y="1475" text-anchor="middle" class="participant">PostForm</text>
+<line x1="700" y1="1490" x2="700" y2="2110" class="lifeline"/>
+<rect x="790" y="1450" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="854" y="1475" text-anchor="middle" class="participant">Post (DB)</text>
+<line x1="854" y1="1490" x2="854" y2="2110" class="lifeline"/>
+<line x1="84" y1="1520" x2="238" y2="1520" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="1514" text-anchor="middle" class="msg">Click “Update Post”</text>
+<line x1="238" y1="1560" x2="392" y2="1560" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="1554" text-anchor="middle" class="msg">GET /post/&lt;pk&gt;/edit/</text>
+<line x1="392" y1="1600" x2="546" y2="1600" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="1594" text-anchor="middle" class="msg">route to post_update(request, pk)</text>
+<line x1="546" y1="1640" x2="854" y2="1640" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="700" y="1634" text-anchor="middle" class="msg">get_object_or_404(Post, pk=pk)</text>
+<line x1="854" y1="1680" x2="546" y2="1680" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="700" y="1674" text-anchor="middle" class="msg">existing Post instance</text>
+<line x1="546" y1="1720" x2="700" y2="1720" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="1714" text-anchor="middle" class="msg">PostForm(instance=post)</text>
+<line x1="546" y1="1760" x2="238" y2="1760" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="1754" text-anchor="middle" class="msg">render form pre-filled with data</text>
+<line x1="84" y1="1800" x2="238" y2="1800" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="1794" text-anchor="middle" class="msg">Edit title/content; click Save</text>
+<line x1="238" y1="1840" x2="392" y2="1840" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="1834" text-anchor="middle" class="msg">POST /post/&lt;pk&gt;/edit/</text>
+<line x1="392" y1="1880" x2="546" y2="1880" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="1874" text-anchor="middle" class="msg">route to post_update(request, pk)</text>
+<line x1="546" y1="1920" x2="700" y2="1920" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="1914" text-anchor="middle" class="msg">PostForm(request.POST, instance=post)</text>
+<line x1="700" y1="1960" x2="546" y2="1960" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="623" y="1954" text-anchor="middle" class="msg">validated data = True</text>
+<line x1="546" y1="2000" x2="854" y2="2000" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="700" y="1994" text-anchor="middle" class="msg">form.save(commit=False) → post.save()</text>
+<path d="M854,2040 h28 v18 h-28" fill="none" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="860" y="2036" class="msg">UPDATE posts_post SET ...</text>
+<line x1="546" y1="2080" x2="238" y2="2080" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="2074" text-anchor="middle" class="msg">302 redirect → post_list</text>
+<line x1="20" y1="2145" x2="918" y2="2145" stroke="#C9A227" stroke-width="1.5" stroke-dasharray="2,4"/>
+<text x="392" y="2198" text-anchor="middle" class="title">4. Delete Sticky Note (Post) — with confirmation step</text>
+<text x="392" y="2218" text-anchor="middle" class="subtitle">User is shown a confirmation page before anything is deleted; the record is only removed after an explicit POST</text>
+<rect x="20" y="2240" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="84" y="2265" text-anchor="middle" class="participant">User</text>
+<line x1="84" y1="2280" x2="84" y2="2820" class="lifeline"/>
+<rect x="174" y="2240" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="238" y="2265" text-anchor="middle" class="participant">Browser</text>
+<line x1="238" y1="2280" x2="238" y2="2820" class="lifeline"/>
+<rect x="328" y="2240" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="392" y="2265" text-anchor="middle" class="participant">urls.py</text>
+<line x1="392" y1="2280" x2="392" y2="2820" class="lifeline"/>
+<rect x="482" y="2240" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="546" y="2265" text-anchor="middle" class="participant">post_delete()</text>
+<line x1="546" y1="2280" x2="546" y2="2820" class="lifeline"/>
+<rect x="636" y="2240" width="128" height="40" fill="#1B3A5C" rx="4"/>
+<text x="700" y="2265" text-anchor="middle" class="participant">Post (DB)</text>
+<line x1="700" y1="2280" x2="700" y2="2820" class="lifeline"/>
+<line x1="84" y1="2310" x2="238" y2="2310" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="2304" text-anchor="middle" class="msg">Click “Delete Post”</text>
+<line x1="238" y1="2350" x2="392" y2="2350" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="2344" text-anchor="middle" class="msg">GET /post/&lt;pk&gt;/delete/</text>
+<line x1="392" y1="2390" x2="546" y2="2390" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="2384" text-anchor="middle" class="msg">route to post_delete(request, pk)</text>
+<line x1="546" y1="2430" x2="700" y2="2430" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="2424" text-anchor="middle" class="msg">get_object_or_404(Post, pk=pk)</text>
+<line x1="700" y1="2470" x2="546" y2="2470" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="623" y="2464" text-anchor="middle" class="msg">matching Post instance</text>
+<line x1="546" y1="2510" x2="238" y2="2510" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="2504" text-anchor="middle" class="msg">render post_confirm_delete.html</text>
+<line x1="238" y1="2550" x2="84" y2="2550" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="161" y="2544" text-anchor="middle" class="msg">“Are you sure you want to delete...?”</text>
+<line x1="84" y1="2590" x2="238" y2="2590" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="161" y="2584" text-anchor="middle" class="msg">Click “Yes, delete”</text>
+<line x1="238" y1="2630" x2="392" y2="2630" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="315" y="2624" text-anchor="middle" class="msg">POST /post/&lt;pk&gt;/delete/</text>
+<line x1="392" y1="2670" x2="546" y2="2670" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="469" y="2664" text-anchor="middle" class="msg">route to post_delete(request, pk)</text>
+<line x1="546" y1="2710" x2="700" y2="2710" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="623" y="2704" text-anchor="middle" class="msg">post.delete()</text>
+<path d="M700,2750 h28 v18 h-28" fill="none" stroke="#1B3A5C" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="706" y="2746" class="msg">DELETE FROM posts_post WHERE id=pk</text>
+<line x1="546" y1="2790" x2="238" y2="2790" stroke="#1B3A5C" stroke-width="1.3" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+<text x="392" y="2784" text-anchor="middle" class="msg">302 redirect → post_list</text>
+</svg>

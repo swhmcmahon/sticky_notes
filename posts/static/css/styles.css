@@ -1,0 +1,22 @@
+/* Sample styles for the bulletin board */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0 1rem;
+  background: #f7f7f7;
+  color: #222;
+}
+header {
+  background: #2b80ff;
+  color: white;
+  padding: 1rem 0.75rem;
+}
+main {
+  max-width: 800px;
+  margin: 1rem auto;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+a { color: #2b80ff; }
+button { background: #2b80ff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; }
